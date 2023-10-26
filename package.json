@@ -1,0 +1,23 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "express-to-do-list",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joetemesi/to-do-list.git"
+  },
+  "author": "Joseph Temesi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joetemesi/to-do-list/issues"
+  },
+  "homepage": "https://github.com/joetemesi/to-do-list#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  }
+}
