@@ -6,7 +6,20 @@
     <title>TEST</title>
 </head>
 <body>
-    <h1>Today is a <%= dayDate %></h1>
+    <h1> <%= dayDate %> </h1>
+    <ul>
+        <li>Buy Food</li>
+        <li>Cook Food</li>
+        <li>Eat Food</li>
+        <!-- <li> <%= newListItems %> </li> -->
+        <% for(i = 0;i < newListItems.length; i++){ %>
+            <li> <%= newListItems[i] %> </li>
+        <% } %>
+    </ul>
+    <form action="/" method="post">
+        <input type="text" name="newItem" id="newItem">
+        <button type="submit" name = "submit">Add</button>
+    </form>
 
 </body>
 </html>
