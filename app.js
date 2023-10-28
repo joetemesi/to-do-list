@@ -7,53 +7,43 @@ const port = process.env.PORT || 3000;
 // Set up middleware for parsing JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.set("view engine", "ejs");
+
+var items = []; //initialize empty array
 
 // Define a route
 app.get('/', (req, res) => {
 
   var today = new Date();
-  var currentDate = today.getDay();
+//   var currentDate = today.getDay();
   var day = "";
 
-//   if (currentDate === 0 || currentDate === 6){
-//     day = "weekend";
-//   } else {
-//     day = "weekday";
-//   }
+  var options = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year:"numeric"
+  };
 
-  switch (currentDate) {
-    case 0:
-        day = "Sunday";
-        break;
-    case 1:
-        day = "Monday";
-        break;
-    case 2:
-        day = "Tuesday";
-        break;    
-    case 3:
-        day = "Wednesday";
-        break;
-    case 4:
-        day = "Thursday";
-        break;
-    case 5:
-        day = "Friday";
-        break;
-    case 6:
-        day= "Saturday";
-        break; 
-    default:
-        console.log(currentDate);
-  }
-  console.log(currentDate); 
+  var day = today.toLocaleDateString("en-us", options);
+  console.log(day); 
 
   res.render("list", {
-    dayDate: day
+    dayDate: day,
+    newListItems: items
 });
+
 });
+
+app.post("/", function(req, res){
+
+    var item = req.body.newItem;
+    items.push(item);
+
+    res.redirect("/");
+})
 
 // Start the server
 app.listen(port, () => {
