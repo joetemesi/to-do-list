@@ -4,22 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEST</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1> <%= dayDate %> </h1>
-    <ul>
-        <li>Buy Food</li>
-        <li>Cook Food</li>
-        <li>Eat Food</li>
-        <!-- <li> <%= newListItems %> </li> -->
-        <% for(i = 0;i < newListItems.length; i++){ %>
-            <li> <%= newListItems[i] %> </li>
-        <% } %>
-    </ul>
-    <form action="/" method="post">
-        <input type="text" name="newItem" id="newItem">
-        <button type="submit" name = "submit">Add</button>
-    </form>
+    <div class = "box" id = "heading">
+        <h1> <%= dayDate %> </h1>
+    </div>
+
+    <div class = "box">
+        <!-- <ul> -->
+            
+            <!-- <p>Buy Food</p>
+            <p>Cook Food</p>
+            <p>Eat Food</p> -->
+            <!-- <li> <%= newListItems %> </li> -->
+            <% for(i = 0;i < newListItems.length; i++){ %>
+
+                <div class = "item">
+                    <input type="checkbox">
+                    <p> <%= newListItems[i] %> </p>
+                </div>
+
+            <% } %>
+        <!-- </ul> -->
+        <form class = "item" action="/" method="post">
+            <input type="text" name="newItem" id="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name = "submit">+</button>
+        </form>
+    
+    </div>
 
 </body>
 </html>
