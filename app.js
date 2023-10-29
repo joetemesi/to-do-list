@@ -12,13 +12,11 @@ app.use(express.static("public"));
 
 app.set("view engine", "ejs");
 
-var items = []; //initialize empty array
+let items = []; //initialize empty array
 // var items = ["Buy Food", "Cook Food", "Eat Food"];
+let workItems = [];
 
-// Define a route
-app.get('/', (req, res) => {
-
-  var today = new Date();
+var today = new Date();
 //   var currentDate = today.getDay();
   var day = "";
 
@@ -32,20 +30,49 @@ app.get('/', (req, res) => {
   var day = today.toLocaleDateString("en-us", options);
   console.log(day); 
 
+  const currentYearLatest = today.getFullYear();
+
+// Define a route
+app.get('/', (req, res) => {
+
+  
+
   res.render("list", {
-    dayDate: day,
-    newListItems: items
+    listTitle: day,
+    newListItems: items,
+    currentYear:currentYearLatest
 });
 
 });
 
 app.post("/", function(req, res){
 
-    var item = req.body.newItem;
-    items.push(item);
 
-    res.redirect("/");
+    let item = req.body.newItem;
+
+    console.log(req.body);
+    if (req.body.submit === "Work"){
+
+      workItems.push(item);
+      res.redirect("/work");
+
+    } else{
+
+      items.push(item);
+      res.redirect("/");
+
+    }
+
 })
+
+app.get("/work", function(req, res){
+  res.render("list", {
+    listTitle: "Work list",
+    newListItems: workItems,
+    currentYear:currentYearLatest
+  })
+})
+
 
 // Start the server
 app.listen(port, () => {
