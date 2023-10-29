@@ -8,10 +8,12 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
 
 app.set("view engine", "ejs");
 
 var items = []; //initialize empty array
+// var items = ["Buy Food", "Cook Food", "Eat Food"];
 
 // Define a route
 app.get('/', (req, res) => {
