@@ -1,4 +1,6 @@
-const today = new Date();
+function myDate () {
+
+  const today = new Date();
 //   var currentDate = today.getDay();
   
 
@@ -10,6 +12,17 @@ const today = new Date();
   };
 
   const day = today.toLocaleDateString("en-us", options);
-  console.log(day); 
+  return day;
+}
 
-  const currentYearLatest = today.getFullYear();
+function myYear() {  
+  const today = new Date();
+
+  const year = today.getFullYear();
+  return year;
+}
+
+module.exports = {
+  myDate: myDate,
+  myYear: myYear
+}
