@@ -1,7 +1,7 @@
 // Import required modules
 const express = require("express");
 const bodyParser = require("body-parser")
-const currentDate = require(__dirname + "/date.js");
+const currentDate = require(__dirname + "/date.js"); //import date module
 const app = express();
 const port = process.env.PORT || 3000
 
@@ -20,14 +20,14 @@ const workItems = [];
 // Define a route
 app.get('/', (req, res) => {
 
-  const longYear = currentDate.myDate(); // Call the function
+  const longYear = currentDate.myDate(); // Call the long date function
 
-  const shortYear = currentDate.myYear();
+  const shortYear = currentDate.myYear(); // Call the short date function
 
   res.render("list", {
-    listTitle: longYear,
+    listTitle: longYear, //ejs title year
     newListItems: items,
-    currentYear:shortYear
+    currentYear:shortYear //ejs footer year
 });
 
 });
@@ -60,7 +60,7 @@ app.get("/work", function(req, res){
   res.render("list", {
     listTitle: "Work list",
     newListItems: workItems,
-    currentYear:shortYear
+    currentYear:shortYear //ejs footer year
   })
 })
 
