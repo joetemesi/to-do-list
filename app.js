@@ -62,10 +62,13 @@ app.get("/work", function(req, res){
     newListItems: workItems,
     currentYear:shortYear //ejs footer year
   })
+  
 })
 
 
 // Start the server
 app.listen(port, () => {
+
   console.log(`Server is running on port ${port}`);
+
 });

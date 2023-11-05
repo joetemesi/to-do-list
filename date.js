@@ -11,15 +11,15 @@ function myDate () {
     year:"numeric"
   };
 
-  const day = today.toLocaleDateString("en-us", options);
-  return day;
+  return today.toLocaleDateString("en-us", options);
+  
 }
 
 function myYear() {  
-  const today = new Date();
 
-  const year = today.getFullYear();
-  return year;
+  const today = new Date();
+  return today.getFullYear();
+
 }
 
 module.exports = {
