@@ -20,14 +20,14 @@ const workItems = [];
 // Define a route
 app.get('/', (req, res) => {
 
-  const longYear = currentDate.myDate(); // Call the long date function
+  // const longYear = currentDate.myDate(); // Call the long date function
 
-  const shortYear = currentDate.myYear(); // Call the short date function
+  // const shortYear = currentDate.myYear(); // Call the short date function
 
   res.render("list", {
-    listTitle: longYear, //ejs title year
+    listTitle: currentDate.myDate(), //ejs title year
     newListItems: items,
-    currentYear:shortYear //ejs footer year
+    currentYear:currentDate.myYear() //ejs footer year
 });
 
 });
@@ -55,12 +55,12 @@ app.post("/", function(req, res){
 app.get("/work", function(req, res){
 
   
-  const shortYear = currentDate.myYear();
+  // const shortYear = currentDate.myYear();
   
   res.render("list", {
     listTitle: "Work list",
     newListItems: workItems,
-    currentYear:shortYear //ejs footer year
+    currentYear:currentDate.myYear() //ejs footer year
   })
   
 })
